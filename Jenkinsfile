@@ -6,7 +6,7 @@ pipeline{
 	stages{
 		stage('CheckOut'){
 		 steps{
-			branch: 'master',
+			git branch: 'master',
 			url: 'https://github.com/stutimahesh/SimpleMaven.git'
 		 }
 		}
