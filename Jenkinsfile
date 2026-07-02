@@ -17,8 +17,13 @@ pipeline{
 		}
 		stage('Test'){
 		  steps{
-			sh 'java -jar target/SimpleMaven-1.0-SNAPSHOT.jar'
+			sh 'mvn test'
 		   }
+		}
+		stage('Run Application'){
+			steps{
+				sh 'java -jar target/SimpleMaven-1.0-SNAPSHOT.jar'
+		   	}
 		}
 	}
 	post{
@@ -28,6 +33,5 @@ pipeline{
 	 failure{
 	     echo 'Build fail'
 	 }
-	}
-	
+	}	
 }
